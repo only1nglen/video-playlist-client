@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { Link, Redirect } from 'react-router-dom'
-import axios from 'axios'
+import YouTube from 'react-youtube'
 
+import axios from 'axios'
 import apiUrl from '../../apiConfig'
+const getVideoId = require('get-video-id')
 
 class Video extends Component {
   constructor (props) {
@@ -10,7 +12,8 @@ class Video extends Component {
 
     this.state = {
       video: null,
-      deleted: false
+      deleted: false,
+      youtubeId: null
     }
   }
 
@@ -23,6 +26,22 @@ class Video extends Component {
       }
     })
       .then(res => this.setState({ video: res.data.video }))
+      // .then(res => this.setState({
+      //   youtubeId: JSON.stringify(getVideoId(res.data.video.url).id)
+      // }))
+      .catch(console.error)
+
+    axios({
+      url: `${apiUrl}/videos/${this.props.match.params.id}`,
+      method: 'get',
+      headers: {
+        Authorization: `Bearer ${this.props.user.token}`
+      }
+    })
+      // .then(res => this.setState({ video: res.data.video }))
+      .then(res => this.setState({
+        youtubeId: getVideoId(res.data.video.url).id
+      }))
       .catch(console.error)
   }
 
@@ -41,19 +60,27 @@ class Video extends Component {
   render () {
     const { video, deleted } = this.state
 
+    if (video) {
+      const youtubeId = JSON.stringify(getVideoId(video.url).id)
+      console.log(youtubeId)
+      // return youtubeId
+    }
+
     if (!video) {
       return <p>Loading...</p>
     }
 
     if (deleted) {
       return <Redirect to={
-        { pathname: '/videos', state: { msg: 'Video succesfully deleted!' } }
+        { pathname: '/videos' }
       } />
     }
 
     return (
       <div>
-        <h4>{video.url}</h4>
+        <YouTube
+          videoId= {this.state.youtubeId}
+        />
         <button onClick={this.destroy}>Delete Video</button>
         <Link to={`/videos/${this.props.match.params.id}/edit`}>
           <button>Edit</button>

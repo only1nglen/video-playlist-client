@@ -45,7 +45,6 @@ class AddVideo extends Component {
     const { addedVideoId, video } = this.state
 
     if (addedVideoId) {
-      //
       return <Redirect to={`/videos/${addedVideoId}`} />
     }
 

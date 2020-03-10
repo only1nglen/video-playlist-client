@@ -21,6 +21,7 @@ class Videos extends Component {
         Authorization: `Bearer ${this.props.user.token}`
       }
     })
+      // .then(res => console.log(res.data.videos))
       .then(res => this.setState({ videos: res.data.videos }))
       .catch(console.error)
   }
@@ -28,7 +29,7 @@ class Videos extends Component {
   render () {
     const videos = this.state.videos.map(video => (
       <li key={video._id}>
-        <Link to={`/videos/${video._id}`}>{video.url}</Link>
+        <Link to={`/videos/${video._id}`}>random</Link>
       </li>
     ))
 
