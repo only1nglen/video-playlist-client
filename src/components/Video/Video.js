@@ -20,26 +20,10 @@ class Video extends Component {
   componentDidMount () {
     axios({
       url: `${apiUrl}/videos/${this.props.match.params.id}`,
-      method: 'get',
-      headers: {
-        Authorization: `Bearer ${this.props.user.token}`
-      }
+      method: 'get'
     })
-      .then(res => this.setState({ video: res.data.video }))
-      // .then(res => this.setState({
-      //   youtubeId: JSON.stringify(getVideoId(res.data.video.url).id)
-      // }))
-      .catch(console.error)
-
-    axios({
-      url: `${apiUrl}/videos/${this.props.match.params.id}`,
-      method: 'get',
-      headers: {
-        Authorization: `Bearer ${this.props.user.token}`
-      }
-    })
-      // .then(res => this.setState({ video: res.data.video }))
       .then(res => this.setState({
+        video: res.data.video,
         youtubeId: getVideoId(res.data.video.url).id
       }))
       .catch(console.error)
@@ -58,34 +42,34 @@ class Video extends Component {
   }
 
   render () {
-    const { video, deleted } = this.state
-
-    if (video) {
-      const youtubeId = JSON.stringify(getVideoId(video.url).id)
-      console.log(youtubeId)
-      // return youtubeId
-    }
-
-    if (!video) {
-      return <p>Loading...</p>
-    }
+    const { video, deleted, youtubeId } = this.state
+    let videoDisplay
 
     if (deleted) {
-      return <Redirect to={
+      videoDisplay = <Redirect to={
         { pathname: '/videos' }
       } />
-    }
-
-    return (
+    } else if (video) {
+      videoDisplay =
       <div>
         <YouTube
-          videoId= {this.state.youtubeId}
+          videoId= {youtubeId}
         />
+
         <button onClick={this.destroy}>Delete Video</button>
         <Link to={`/videos/${this.props.match.params.id}/edit`}>
           <button>Edit</button>
         </Link>
+
         <Link to="/videos">Back to all videos</Link>
+      </div>
+    } else {
+      videoDisplay = <p>Loading...</p>
+    }
+
+    return (
+      <div>
+        {videoDisplay}
       </div>
     )
   }

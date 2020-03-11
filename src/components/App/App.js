@@ -65,10 +65,10 @@ class App extends Component {
           <AuthenticatedRoute exact user={user} path='/add-video' render={() => (
             <AddVideo msgAlert={this.msgAlert} user={user} />
           )} />
-          <AuthenticatedRoute exact user={user} path='/videos' render={() => (
+          <Route exact user={user} path='/videos' render={() => (
             <Videos msgAlert={this.msgAlert} user={user} />
           )} />
-          <AuthenticatedRoute exact user={user} path='/videos/:id' render={({ match }) => (
+          <Route exact user={user} path='/videos/:id' render={({ match }) => (
             <Video user={user} msgAlert={this.msgAlert} match={match} />
           )} />
           <AuthenticatedRoute exact user={user} path='/videos/:id/edit' render={({ match }) => (
