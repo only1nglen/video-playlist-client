@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 import apiUrl from '../../apiConfig'
+// const getVideoId = require('get-video-id')
 
 class Videos extends Component {
   constructor (props) {
@@ -28,9 +29,13 @@ class Videos extends Component {
 
     if (videos) {
       if (videos.length) {
+        console.log(videos[0].url, 'video')
+        // () = videos.forEach(video => (
+        //   youtubeId = getVideoId(video.url)
+        // ))
         videoList = videos.map(video => (
           <li key={video._id}>
-            <Link to={`/videos/${video._id}`}>random</Link>
+            <Link to={`/videos/${video._id}`}><img src="https://img.youtube.com/vi/5qap5aO4i9A/default.jpg"/></Link>
           </li>
         ))
       } else {

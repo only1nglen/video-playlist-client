@@ -50,19 +50,37 @@ class Video extends Component {
         { pathname: '/videos' }
       } />
     } else if (video) {
-      videoDisplay =
+      // console.log(this.props.user) // can get user, but cant access info like _id
+      // console.log(video.owner) // works fine
+      if (this.props.user !== null && this.props.user._id === video.owner) {
+        videoDisplay =
+         <div>
+           <YouTube
+             videoId= {youtubeId}
+           />
+           <Link to="/videos">Back to all videos</Link>
+           <button onClick={this.destroy}>Delete Video</button>
+           <Link to={`/videos/${this.props.match.params.id}/edit`}>
+             <button>Edit</button>
+           </Link>
+         </div>
+      } else if (this.props.user !== null && this.props.user._id !== video.owner) {
+        videoDisplay =
       <div>
         <YouTube
           videoId= {youtubeId}
         />
-
-        <button onClick={this.destroy}>Delete Video</button>
-        <Link to={`/videos/${this.props.match.params.id}/edit`}>
-          <button>Edit</button>
-        </Link>
-
         <Link to="/videos">Back to all videos</Link>
       </div>
+      } else if (this.props.user === null) {
+        videoDisplay =
+      <div>
+        <YouTube
+          videoId= {youtubeId}
+        />
+        <Link to="/videos">Back to all videos</Link>
+      </div>
+      }
     } else {
       videoDisplay = <p>Loading...</p>
     }
