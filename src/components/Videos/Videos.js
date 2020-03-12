@@ -29,13 +29,22 @@ class Videos extends Component {
 
     if (videos) {
       if (videos.length) {
-        console.log(videos[0].url, 'video')
-        // () = videos.forEach(video => (
-        //   youtubeId = getVideoId(video.url)
-        // ))
+        // console.log(videos)
+        // console.log(videos[0].url)
+        // const pic = getVideoId(videos[0].url).id
+        // console.log(pic, 'pic')
+
+        // convert each video's url into an id to use
+        // const picId = videos.forEach(video => console.log(getVideoId(video.url).id))
+        // console.log(picId)
+        // assign that created id to each corresponding video
+        // const something = videos.filter(video => getVideoId(video.url).id === picId) {
+        //   let pic =
+        // }
+
         videoList = videos.map(video => (
           <li key={video._id}>
-            <Link to={`/videos/${video._id}`}><img src="https://img.youtube.com/vi/5qap5aO4i9A/default.jpg"/></Link>
+            <Link to={`/videos/${video._id}`}>{video.url}</Link>
           </li>
         ))
       } else {
