@@ -12,7 +12,7 @@ This app was created for users to share videos they like into one list, for now.
 
 ## Planning Story
 
-Started with the API and tested CRUD on videos resource with Postman using Express. As for the frontend, I simply start with making sure a user can submit a link. From there I neded to find a way to use that link and make a video render from it. I found a component online that would accept youtube video link IDs and display it on the page. Next, I had to parse each YouTube link into an ID that the component can render the ID into a video to display in the site.
+Started with the API and tested CRUD on videos resource with Postman using Express. As for the frontend, I simply start with making sure a user can submit a link. From there I needed to find a way to use that link and make a video render from it. I found a component online that would accept youtube video link IDs and display it on the page. Next, I had to parse each YouTube link into an ID that the component can render the ID into a video to display in the site.
 
 ### User Story
 
@@ -45,7 +45,7 @@ As a registered user, I would like to update and delete the playlist and videos 
 -   Styling needed
 -   Work on Version 2
 -   Use images as links instead of Urls strings
--   Users can sumbit any string and it will be accepted. Howver invalid link will not renver a video. Video will display but nothing will be played. Will have to look into how to make sure valid yotube link wll be accepted.
+-   Users can submit any string and it will be accepted. However invalid link will not render a video. Video will display but nothing will be played. Will have to look into how to make sure valid youtube link will be accepted.
 
 ## Images
 
