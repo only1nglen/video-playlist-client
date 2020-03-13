@@ -13,8 +13,7 @@ class AddVideo extends Component {
 
     this.state = {
       video: {
-        url: '',
-        thumbId: ''
+        url: ''
       },
       addedVideoId: null
     }
@@ -39,10 +38,7 @@ class AddVideo extends Component {
         Authorization: `Bearer ${this.props.user.token}`
       }
     })
-      .then(res => this.setState({
-        addedVideoId: res.data.video._id
-        // thumbId: getVideoId(res.data.video.url).id
-      }))
+      .then(res => this.setState({ addedVideoId: res.data.video._id }))
       .catch(console.error)
   }
 

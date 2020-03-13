@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Link, Redirect } from 'react-router-dom'
 import YouTube from 'react-youtube'
-// import theme from './theme'
 
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
@@ -44,9 +43,6 @@ class Video extends Component {
 
   render () {
     const { video, deleted, youtubeId } = this.state
-    // const styles = {
-    //
-    // }
     let videoDisplay
 
     if (deleted) {
