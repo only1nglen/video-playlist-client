@@ -1,1 +1,11 @@
 @import '~bootstrap/scss/bootstrap';
+body{
+  background-color: #073b85;
+  color: #fff312;
+}
+
+ .homepage {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+ }

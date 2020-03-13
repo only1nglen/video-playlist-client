@@ -5,13 +5,16 @@ import axios from 'axios'
 import apiUrl from '../../apiConfig'
 import VideoForm from '../VideoForm/VideoForm'
 
+// const getVideoId = require('get-video-id')
+
 class AddVideo extends Component {
   constructor (props) {
     super(props)
 
     this.state = {
       video: {
-        url: ''
+        url: '',
+        thumbId: ''
       },
       addedVideoId: null
     }
@@ -36,7 +39,10 @@ class AddVideo extends Component {
         Authorization: `Bearer ${this.props.user.token}`
       }
     })
-      .then(res => this.setState({ addedVideoId: res.data.video._id }))
+      .then(res => this.setState({
+        addedVideoId: res.data.video._id
+        // thumbId: getVideoId(res.data.video.url).id
+      }))
       .catch(console.error)
   }
 

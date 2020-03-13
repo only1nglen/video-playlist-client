@@ -35,10 +35,12 @@ class Videos extends Component {
         // console.log(pic, 'pic')
 
         // convert each video's url into an id to use
-        // const picId = videos.forEach(video => console.log(getVideoId(video.url).id))
-        // console.log(picId)
+        // const thumbId = videos.forEach(function (video) {
+        //   return getVideoId(video.url).id
+        // })
+        // console.log(thumbId)
         // assign that created id to each corresponding video
-        // const something = videos.filter(video => getVideoId(video.url).id === picId) {
+        // const thumbnail = videos.filter(video => getVideoId(video.url).id === picId) {
         //   let pic =
         // }
 
