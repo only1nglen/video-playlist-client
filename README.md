@@ -4,7 +4,7 @@ This app was created for users to share videos they like into one list, for now.
 
 ## Important Links
 
-[VideoPlaylist Repo](https://github.com/only1nglen/video-playlist-client)
+[VideoPlaylist API Repo](https://github.com/only1nglen/video-playlist-backend)
 
 [VideoPlaylist API](https://ancient-peak-54308.herokuapp.com/)
 
