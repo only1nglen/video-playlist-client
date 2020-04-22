@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 import apiUrl from '../../apiConfig'
-// const getVideoId = require('get-video-id')
+const getVideoId = require('get-video-id')
 
 class Videos extends Component {
-  constructor (props) {
-    super(props)
+  constructor () {
+    super()
 
     this.state = {
       videos: []
@@ -19,7 +19,9 @@ class Videos extends Component {
       url: `${apiUrl}/videos`,
       method: 'get'
     })
-      .then(res => this.setState({ videos: res.data.videos }))
+      .then(res => this.setState({
+        videos: res.data.videos
+      }))
       .catch(console.error)
   }
 
@@ -29,25 +31,23 @@ class Videos extends Component {
 
     if (videos) {
       if (videos.length) {
-        // console.log(videos)
+        // console.log(videos, 'inside render')
         // console.log(videos[0].url)
         // const pic = getVideoId(videos[0].url).id
         // console.log(pic, 'pic')
 
         // convert each video's url into an id to use
-        // const thumbId = videos.forEach(function (video) {
-        //   return getVideoId(video.url).id
-        // })
-        // console.log(thumbId)
-        // assign that created id to each corresponding video
-        // const thumbnail = videos.filter(video => getVideoId(video.url).id === picId) {
-        //   let pic =
-        // }
+        // const videoId = videos.map(video =>
+        //   getVideoId(video.url).id
+        // )
+        // console.log(videoId, 'is videoId')
+
+        // have each youtube id go into a img src link
 
         videoList = videos.map(video => (
-          <li key={video._id}>
-            <Link to={`/videos/${video._id}`}>{video.url}</Link>
-          </li>
+          <div key={video._id}>
+            <Link to={`/videos/${video._id}`}> <img src={`https://i1.ytimg.com/vi/${getVideoId(video.url).id}/default.jpg`}/> </Link>
+          </div>
         ))
       } else {
         videoList = 'No videos to display. Add some videos if you have an account.'
