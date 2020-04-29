@@ -17,19 +17,18 @@ Started with the API and tested CRUD on videos resource with Postman using Expre
 ### User Story
 
 Version 1
-As an unregistered user, I would like to create an account.
-As an unregistered user, I would like to view and watch user added videos and playlists.
-
-As a registered user, I would like to sign in, change password, and logout.
-As a registered user, I would like to add a video.
-As a registered user, I would like to play/watch the video.
-As a registered user, I would like to delete and edit the video I added.
+-   As an unregistered user, I would like to create an account.
+-   As an unregistered user, I would like to view and watch user added videos and playlists.
+-   As a registered user, I would like to sign in, change password, and logout.
+-   As a registered user, I would like to add a video.
+-   As a registered user, I would like to play/watch the video.
+-   As a registered user, I would like to delete and edit the video I added.
 
 Version 2
-As a registered user, I would like to create a playlist.
-As a registered user, I would like to add to the playlist.
-As a registered user, I would like to ply/watch to the playlist.
-As a registered user, I would like to update and delete the playlist and videos in it.
+-   As a registered user, I would like to create a playlist.
+-   As a registered user, I would like to add to the playlist.
+-   As a registered user, I would like to ply/watch to the playlist.
+-   As a registered user, I would like to update and delete the playlist and videos in it.
 
 ### Technologies Used
 
