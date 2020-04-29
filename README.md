@@ -43,11 +43,25 @@ As a registered user, I would like to update and delete the playlist and videos 
 ### Unsolved Problems, Things to Do/Want to do
 
 -   Styling needed
--   Work on Version 2
--   Use images as links instead of Urls strings
+-   Display messages;Feedback on edited/deleted videos
+-   Complete Version 2
 -   Users can submit any string and it will be accepted. However invalid link will not render a video. Video will display but nothing will be played. Will have to look into how to make sure valid youtube link will be accepted.
 
 ## Images
 
-[Wireframe 1](https://i.imgur.com/3viZ0TF.jpg)
-[Wireframe 2](https://i.imgur.com/YeLeOIs.jpg)
+### Wireframe
+![Wireframe 1](https://i.imgur.com/e3KSXob.png)
+
+![Wireframe 2](https://i.imgur.com/BqD3PBK.png)
+
+![Wireframe 3](https://i.imgur.com/dppJVmY.png)
+
+### ERD
+
+Version 1
+
+![ERD v1](https://imgur.com/ONb5CiX.png)
+
+Version 2
+
+![ERD v1](https://i.imgur.com/pZxtSYj.png)
