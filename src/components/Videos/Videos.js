@@ -52,8 +52,6 @@ class Videos extends Component {
       } else {
         videoList = 'No videos to display. Add some videos if you have an account.'
       }
-    } else {
-      videoList = 'Loading..'
     }
 
     return (
