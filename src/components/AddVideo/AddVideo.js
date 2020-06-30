@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
+import messages from '../AutoDismissAlert/messages'
 
 import apiUrl from '../../apiConfig'
 import VideoForm from '../VideoForm/VideoForm'
-
-// const getVideoId = require('get-video-id')
 
 class AddVideo extends Component {
   constructor (props) {
@@ -39,7 +38,18 @@ class AddVideo extends Component {
       }
     })
       .then(res => this.setState({ addedVideoId: res.data.video._id }))
-      .catch(console.error)
+      .then(() => this.props.msgAlert({
+        heading: 'Succesfully added your Video! ',
+        message: messages.addVideoSuccess,
+        variant: 'success'
+      }))
+      .catch(error =>
+        this.props.msgAlert({
+          heading: 'Failure: ' + error.message,
+          message: messages.addVideoFailure,
+          variant: 'danger'
+        })
+      )
   }
 
   render () {

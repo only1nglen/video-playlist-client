@@ -1,12 +1,31 @@
 @import '~bootstrap/scss/bootstrap';
 
-body{
+body {
   background-color: #073b85;
   color: #fff312;
 }
 
- .homepage {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
- }
+.homepage {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+
+.title-videos {
+  display: flex;
+  justify-content: center;
+}
+
+.video-collection {
+  @include make-row;
+}
+
+.video-thumb {
+  margin: 5px;
+}
+
+.individual-video {
+  display: flex;
+  justify-content: center;
+}

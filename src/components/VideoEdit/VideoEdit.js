@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
+import messages from '../AutoDismissAlert/messages'
 
 import apiUrl from '../../apiConfig'
 import VideoForm from '../VideoForm/VideoForm'
@@ -49,7 +50,18 @@ class VideoEdit extends Component {
       }
     })
       .then(() => this.setState({ updated: true }))
-      .catch(console.error)
+      .then(() => this.props.msgAlert({
+        heading: 'Succesfully Updated your Video! ',
+        message: messages.updateVideoSuccess,
+        variant: 'success'
+      }))
+      .catch(error =>
+        this.props.msgAlert({
+          heading: 'Failed ' + error.message,
+          message: messages.updateVideoFailure,
+          variant: 'danger'
+        })
+      )
   }
 
   render () {

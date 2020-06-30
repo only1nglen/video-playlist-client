@@ -46,7 +46,7 @@ class Videos extends Component {
 
         videoList = videos.map(video => (
           <div key={video._id}>
-            <Link to={`/videos/${video._id}`}> <img src={`https://i1.ytimg.com/vi/${getVideoId(video.url).id}/default.jpg`}/> </Link>
+            <Link to={`/videos/${video._id}`}> <img className='video-thumb' src={`https://i1.ytimg.com/vi/${getVideoId(video.url).id}/default.jpg`}/> </Link>
           </div>
         ))
       } else {
@@ -56,10 +56,10 @@ class Videos extends Component {
 
     return (
       <div>
-        <h4>Videos</h4>
-        <ul>
+        <h4 className='title-videos'>Video Collection</h4>
+        <div className='video-collection'>
           {videoList}
-        </ul>
+        </div>
       </div>
     )
   }

@@ -50,8 +50,6 @@ class Video extends Component {
         { pathname: '/videos' }
       } />
     } else if (video) {
-      // console.log(this.props.user) // can get user, but cant access info like _id
-      // console.log(video.owner) // works fine
       if (this.props.user !== null && this.props.user._id === video.owner) {
         videoDisplay =
          <div>
@@ -86,8 +84,8 @@ class Video extends Component {
     }
 
     return (
-      <div>
-        {videoDisplay}
+      <div className='individual-video'>
+        <div>{videoDisplay}</div>
       </div>
     )
   }
