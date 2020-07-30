@@ -4,7 +4,6 @@ import React from 'react'
 const Home = () => (
   <div className='homepage'>
     <img src ="https://i.imgur.com/tJhGQaX.png"></img>
-    <p>The Feels</p>
   </div>
 )
 
