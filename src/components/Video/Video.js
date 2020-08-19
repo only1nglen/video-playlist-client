@@ -73,7 +73,7 @@ class Video extends Component {
 
     return (
       <div className='individual-video'>
-        <div>{videoDisplay}</div>
+        {videoDisplay}
       </div>
     )
   }

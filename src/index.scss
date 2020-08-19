@@ -12,6 +12,7 @@ body {
   margin: 20px;
 }
 
+// "Videos" component
 .title-videos {
   display: flex;
   justify-content: center;
@@ -19,13 +20,17 @@ body {
 
 .video-collection {
   @include make-row;
+  display: flex;
+  justify-content: center;
 }
 
 .video-thumb {
   margin: 5px;
 }
 
+// "Video" Component
 .individual-video {
   display: flex;
   justify-content: center;
+  margin: 10px;
 }

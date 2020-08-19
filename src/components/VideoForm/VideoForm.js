@@ -1,20 +1,38 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
 
 const VideoForm = ({ video, handleSubmit, handleChange, cancelPath }) => (
-  <form onSubmit={handleSubmit}>
-    <input
-      placeholder="Video URL"
-      value={video.url}
-      name="url"
-      onChange={handleChange}
-    />
+  <Form onSubmit={handleSubmit}>
 
-    <button type="submit">Submit</button>
-    <Link to={cancelPath}>
-      <button>Cancel</button>
-    </Link>
-  </form>
+    <Form.Group controlId="video-url">
+      <Form.Label>Enter a YouTube URL</Form.Label>
+      <Form.Control
+        required
+        type="text"
+        name="video-url"
+        value={video.url}
+        placeholder="Enter URL"
+        onChange={handleChange} />
+    </Form.Group>
+
+    <div className="btn-group mr-2">
+      <Button
+        variant="primary"
+        type="submit">
+        Submit
+      </Button>
+    </div>
+
+    <div className="btn-group mr-2">
+      <Button
+        variant="danger">
+          Cancel
+      </Button>
+    </div>
+
+  </Form>
 )
 
 export default VideoForm
