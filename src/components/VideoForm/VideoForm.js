@@ -6,12 +6,12 @@ import Button from 'react-bootstrap/Button'
 const VideoForm = ({ video, handleSubmit, handleChange, cancelPath }) => (
   <Form onSubmit={handleSubmit}>
 
-    <Form.Group controlId="video-url">
+    <Form.Group controlId="url">
       <Form.Label>Enter a YouTube URL</Form.Label>
       <Form.Control
         required
         type="text"
-        name="video-url"
+        name="url"
         value={video.url}
         placeholder="Enter URL"
         onChange={handleChange} />
