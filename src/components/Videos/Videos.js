@@ -33,7 +33,9 @@ class Videos extends Component {
       if (videos.length) {
         videoList = videos.map(video => (
           <div key={video._id}>
-            <Link to={`/videos/${video._id}`}> <img className='video-thumb' src={`https://i1.ytimg.com/vi/${getVideoId(video.url).id}/default.jpg`}/> </Link>
+            <Link to={`/videos/${video._id}`}>
+              <img className='video-thumb' src={`https://i1.ytimg.com/vi/${getVideoId(video.url).id}/default.jpg`}/>
+            </Link>
           </div>
         ))
       } else {

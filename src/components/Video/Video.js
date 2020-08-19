@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
-import { Link, Redirect } from 'react-router-dom'
-import YouTube from 'react-youtube'
+import { Redirect } from 'react-router-dom'
+// import YouTube from 'react-youtube'
 
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
+import NotOwnerVideoButtons from './NotOwnerVideoButtons'
+import OwnerVideoButtons from './OwnerVideoButtons'
 const getVideoId = require('get-video-id')
 
 class Video extends Component {
@@ -46,37 +48,23 @@ class Video extends Component {
     let videoDisplay
 
     if (deleted) {
-      videoDisplay = <Redirect to={
-        { pathname: '/videos' }
-      } />
+      videoDisplay =
+        <Redirect to={{ pathname: '/videos' }} />
     } else if (video) {
       if (this.props.user !== null && this.props.user._id === video.owner) {
         videoDisplay =
          <div>
-           <YouTube
-             videoId= {youtubeId}
-           />
-           <Link to="/videos">Back to all videos</Link>
-           <button onClick={this.destroy}>Delete Video</button>
-           <Link to={`/videos/${this.props.match.params.id}/edit`}>
-             <button>Edit</button>
-           </Link>
+           <OwnerVideoButtons destroy ={this.destroy} video= {video} videoId= {youtubeId} />
          </div>
       } else if (this.props.user !== null && this.props.user._id !== video.owner) {
         videoDisplay =
       <div>
-        <YouTube
-          videoId= {youtubeId}
-        />
-        <Link to="/videos">Back to all videos</Link>
+        <NotOwnerVideoButtons video= {video} videoId= {youtubeId}/>
       </div>
       } else if (this.props.user === null) {
         videoDisplay =
       <div>
-        <YouTube
-          videoId= {youtubeId}
-        />
-        <Link to="/videos">Back to all videos</Link>
+        <NotOwnerVideoButtons video= {video} videoId= {youtubeId}/>
       </div>
       }
     } else {
