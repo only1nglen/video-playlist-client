@@ -87,6 +87,7 @@ class SignUp extends Component {
                 onChange={this.handleChange}
               />
             </Form.Group>
+            <small className="form-text text-muted">Please do NOT use a real email and password. App is for demo purposes.</small>
             <Button
               variant="primary"
               type="submit"

@@ -1,7 +1,7 @@
 @import '~bootstrap/scss/bootstrap';
 
 body {
-  background-color: #073b85;
+  background-color: black;
   color: #fff312;
   width: auto;
 }
@@ -28,7 +28,27 @@ body {
   margin: 5px;
 }
 
-// "Video" Component
+// "Video" Folder Components
 .video-page {
   margin: 10px;
+}
+
+.video-box {
+    overflow: hidden;
+    position: relative;
+    width:100%;
+}
+
+.video-box::after {
+    padding-top: 56.25%;
+    display: block;
+    content: '';
+}
+
+.video-player iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
