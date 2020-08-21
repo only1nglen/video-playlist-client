@@ -16,7 +16,7 @@ const OwnerVideoButtons = (props) => (
         <Button variant="info">Edit</Button>
       </Link>
     </div>
-    <div className="btn-group mr-2 ">
+    <div className="btn-group mr-2">
       <Button variant="danger" onClick={props.destroy}>Delete</Button>
     </div>
   </div>

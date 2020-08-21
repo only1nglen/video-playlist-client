@@ -5,10 +5,14 @@ import Button from 'react-bootstrap/Button'
 
 const NotOwnerVideoButtons = (props) => (
   <div>
-    <YouTube videoId= {props.videoId} />
-    <Link to="/videos">
-      <Button variant="secondary">Back</Button>
-    </Link>
+    <div>
+      <YouTube videoId={props.videoId} />
+    </div>
+    <div className="btn-group mr-2">
+      <Link to="/videos">
+        <Button variant="secondary">Back</Button>
+      </Link>
+    </div>
   </div>
 )
 

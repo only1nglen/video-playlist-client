@@ -53,26 +53,20 @@ class Video extends Component {
     } else if (video) {
       if (this.props.user !== null && this.props.user._id === video.owner) {
         videoDisplay =
-         <div>
            <OwnerVideoButtons destroy ={this.destroy} video= {video} videoId= {youtubeId} />
-         </div>
       } else if (this.props.user !== null && this.props.user._id !== video.owner) {
         videoDisplay =
-      <div>
         <NotOwnerVideoButtons video= {video} videoId= {youtubeId}/>
-      </div>
       } else if (this.props.user === null) {
         videoDisplay =
-      <div>
         <NotOwnerVideoButtons video= {video} videoId= {youtubeId}/>
-      </div>
       }
     } else {
       videoDisplay = <p>Loading...</p>
     }
 
     return (
-      <div className='individual-video'>
+      <div className='video-page'>
         {videoDisplay}
       </div>
     )

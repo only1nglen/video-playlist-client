@@ -3,12 +3,12 @@
 body {
   background-color: #073b85;
   color: #fff312;
+  width: auto;
 }
 
 .homepage {
-  align-items: center;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   margin: 20px;
 }
 
@@ -19,8 +19,8 @@ body {
 }
 
 .video-collection {
-  @include make-row;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
 }
 
@@ -29,8 +29,6 @@ body {
 }
 
 // "Video" Component
-.individual-video {
-  display: flex;
-  justify-content: center;
+.video-page {
   margin: 10px;
 }
